@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<section class="articles">
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 03/05/2018 à 19:00 dans la catégorie informatique</div>
+        <div class="content"><img src="http://placehold.it/300x300" alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem error id ipsam nemo sunt ut.</p>
+            <p>Adipisci amet animi beatae deleniti eius est id, molestias numquam odit omnis totam, ut voluptate.</p>
+            <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a></div>
+    </article>
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 03/05/2018 à 19:00 dans la catégorie informatique</div>
+        <div class="content"><img src="http://placehold.it/300x300" alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis ducimus eveniet facere laborum
+                molestiae nemo?</p>
+            <p>Aliquid amet dicta dolor, dolorem eligendi id natus, nisi pariatur perferendis, possimus quas similique
+                ut.</p>
+            <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a></div>
+    </article>
+    <article>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 03/05/2018 à 19:00 dans la catégorie informatique</div>
+        <div class="content"><img src="http://placehold.it/300x300" alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis ducimus impedit maxime ratione
+                voluptatum. Ratione?</p>
+            <p>Architecto beatae exercitationem expedita nihil nobis perferendis placeat quo recusandae rem repellat,
+                reprehenderit ut voluptates.</p>
+            <a href="{{ path('blog_show') }}" class="btn btn-primary">Lire la suite</a></div>
+    </article>
+</section>
+{% endblock %}
