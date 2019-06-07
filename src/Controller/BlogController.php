@@ -3,7 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use \Symfony\Component\Form\Extension\Core\Type\TextType;
+use PhpParser\Node\Expr\Cast\Object_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
@@ -28,6 +34,40 @@ class BlogController extends AbstractController
     {
         return $this->render('blog/home.html.twig', [
             'title' => "bienvenue sur ce blog"
+        ]);
+    }
+
+    /**
+     * @Route("blog/new", name="blog_create")
+     */
+    public function create()
+    {
+        $article = new Article();
+        $form = $this->createFormBuilder($article)
+            ->add('title', TextType::class, [
+                'attr' => [
+                    'placeholder' => "titre de l'article",
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('content', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => "Contenu de l'article",
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('image', TextType::class, [
+                'attr' => [
+                    'placeholder' => "Image de l'article",
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Enregistrer'
+            ])
+            ->getForm();
+        return $this->render('blog/create.html.twig', [
+            'formArticle' => $form->createView()
         ]);
     }
 
